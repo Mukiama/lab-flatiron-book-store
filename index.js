@@ -43,5 +43,23 @@ const bookStore = {
     ]
 }
 
-// Write your code here!
+function bookStoreUpdate (bookStore) {
+    const bookStoreTitle = document.querySelector("h1")
+    bookStoreTitle.textContent = bookStore.name;
+    bookStore.books.forEach(book => {
+        const booklist = document.querySelector("ul")
+        const bookContainer = document.createElement("li")
+        booklist.appendChild(bookContainer)
+        const bookTitle = document.createElement("h3")
+        bookTitle.textContent = book.title
+        bookContainer.appendChild(bookTitle)
+        const bookAuthor = document.createElement("p")
+        bookAuthor.textContent = book.author;
+        bookContainer.appendChild(bookAuthor);
+        const bookImage = document.createElement("img");
+        bookImage.src = book.imageUrl;
+        bookContainer.appendChild(bookImage);
 
+    })
+}
+bookStoreUpdate(bookStore)
